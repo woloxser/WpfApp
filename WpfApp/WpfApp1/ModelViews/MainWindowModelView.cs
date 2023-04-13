@@ -14,12 +14,24 @@ namespace WpfApp1.ModelViews
     {
         public MainWindowModelView()
         {
-            IloczynCommand = new RelayCommand(iloczyn);
+
+            NwdCommand = new RelayCommand(nwd);
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        private string outNwd;
+
+        public string OutNwd
+        {
+            get { return outNwd; }
+            set 
+            { 
+                outNwd = value; 
+                OnPropertyChanged(nameof(OutNwd));
+            }
         }
         private string arg1;
         public string Arg1
@@ -31,11 +43,37 @@ namespace WpfApp1.ModelViews
                 OnPropertyChanged(nameof(Arg1));
             }
         }
-        public ICommand IloczynCommand { get; set; }
-        public void iloczyn(Object obj)
+        private string arg2;
+
+        public string Arg2
+        {
+            get { return arg2; } 
+            set
+            {
+                arg2 = value;
+                OnPropertyChanged(nameof(Arg2));
+            }
+        }
+        public ICommand NwdCommand { get; set; }
+        public void nwd(Object obj)
         {
             try
             {
+                double x = Convert.ToDouble(Arg1);
+                double y = Convert.ToDouble(Arg2);
+
+                while(x!=y)
+                {
+                    if(x > y)
+                    {
+                        x = x - y;
+                    }
+                    else
+                    {
+                        y = y - x;
+                    }
+                }
+                OutNwd = x.ToString();
 
             }
             catch (Exception ex)

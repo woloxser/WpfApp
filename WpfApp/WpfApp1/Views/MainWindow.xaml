@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
+        xmlns:modelvies ="clr-namespace:WpfApp1.ModelViews"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="400">
+    <Window.DataContext>
+        <modelvies:MainWindowModelView/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -61,7 +65,7 @@
             Grid.ColumnSpan="2" 
             Content="Oblicz NWD"
             FontSize="28" Height="NaN" Margin="92,5,92,10" Width="NaN"
-            Command="{Binding NWD}"
+            Command="{Binding NwdCommand}"
         />
 
         <Label 
