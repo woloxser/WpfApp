@@ -7,6 +7,72 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="400">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label 
+            Content="Algorytm NWD"
+            FontSize="30" Grid.ColumnSpan="2" Margin="0,0,10,10" Width="NaN" Height="NaN"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+        />
+
+        <Label 
+            Grid.Row="1"
+            Content="Arg1:"
+            FontSize="24"
+            HorizontalAlignment="Right"
+            VerticalAlignment="center"
+        />
+
+        <Label 
+            Grid.Row="2"
+            Content="Arg2:"
+            FontSize="24"
+            HorizontalAlignment="Right"
+            VerticalAlignment="center"
+        />
+
+        <TextBox 
+            Grid.Row="1"    
+            Grid.Column="1"
+            FontSize="16" Height="NaN" Margin="10,32,37,33" Width="NaN"
+            Text="{Binding Arg1}"
+
+        />
+        <TextBox 
+            Grid.Row="2"    
+            Grid.Column="1"
+            FontSize="16" Height="NaN" Margin="10,33,37,33" Width="NaN"
+            Text="{Binding Arg2}"
+        />
+
+        <Button 
+            Grid.Row="3"
+            Grid.ColumnSpan="2" 
+            Content="Oblicz NWD"
+            FontSize="28" Height="NaN" Margin="92,5,92,10" Width="NaN"
+            Command="{Binding NWD}"
+        />
+
+        <Label 
+        Grid.Row="4"
+        Grid.ColumnSpan="2"
+        Content="{Binding OutNwd}"
+        HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
+        FontSize="40"
+        
+        />
 
     </Grid>
 </Window>
